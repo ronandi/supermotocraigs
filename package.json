@@ -1,0 +1,19 @@
+{
+  "name": "scream",
+  "version": "0.0.0",
+  "description": "Craigslist notifier script",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "keywords": [
+    "craigslist"
+  ],
+  "author": "Rohit Kumar",
+  "license": "BSD",
+  "dependencies": {
+      "feedparser":"*",
+      "mongolian":"*"
+  }
+}
