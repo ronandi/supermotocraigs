@@ -5,7 +5,7 @@ var JERSEY_SHORE = 'http://jerseyshore.craigslist.org/search/mca?hasPic=1&minAsk
 var NORTH_JERSEY = 'http://newjersey.craigslist.org/search/mca?hasPic=1&minAsk=3000&query=supermoto&srchType=A&format=rss';
 var SOUTH_JERSEY = 'http://southjersey.craigslist.org/search/mca?hasPic=1&minAsk=3000&query=supermoto&srchType=A&format=rss';
 var NJRSS = [CENTRAL_NJ, JERSEY_SHORE, NORTH_JERSEY, SOUTH_JERSEY];
-
+var REFRESH_TIME = 1800000; // 1 hour
 var DB_HOST = process.env.MONGOLAB_URI || 'localhost'
 var server = new Mongolian({
     log: {
@@ -47,7 +47,7 @@ function checkFeeds(callback) {
 function runScript() {
     db.collection('results').ensureIndex({ id: 1 }, { unique: true })
     checkFeeds();
-    setInterval(checkFeeds, 180000);
+    setInterval(checkFeeds, REFRESH_TIME);
     db.collection('results').count(function(count) {
         function notifyIfNew() {
             db.collection('results').count(function(newcount) {

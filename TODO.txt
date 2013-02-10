@@ -1,0 +1,6 @@
+TODO:
+* Send emails when new results are found
+* Change view to be better looking:
+    * Include image, link to original post in each row
+* Show time when last updated
+
